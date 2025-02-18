@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Courses</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(45deg, #e0a421, #e4ad47, #ffffff, #86ee6c, #99f165);
+  background-size: 300% 300%;
+  animation: background-shift 1s infinite ease-in-out;
+}
+
+/* Animation for the background */
+@keyframes background-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+        header {
+            background-color: #050505;
+            color: white;
+            padding: 1rem 2rem;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 100rem;
+            margin: 2rem auto;
+            padding: 1rem;
+            background: white;
+            background: linear-gradient(45deg, #f0a417, #e29505, #fffeff, #06d106, #1ecf06);
+  background-size: 300% 300%;
+  animation: background-shift 1s infinite ease-in-out;
+            border-radius: 0.6rem;
+            box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.1);
+        }
+
+        .course {
+            border: 0.08rem solid #ccc;
+            border-radius: 0.7rem;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .course h2 {
+            margin: 0;
+            padding: 1rem;
+            background: #0f0f0f;
+            color: rgb(253, 252, 252);
+            font-size: 1.5rem;
+        }
+
+        .course p {
+            padding: 1rem;
+            margin: 0;
+            color: #333;
+        }
+
+        .course-footer {
+            padding: 1rem;
+            background: #f9f9f9;
+            text-align: center;
+        }
+
+        .course-footer a {
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            background-color: #28a745;
+            color: rgb(15, 15, 15);
+            border-radius: 0.3rem;
+        }
+
+        .course-footer a:hover {
+            background-color: #218838;
+            background: linear-gradient(45deg, #e9b81a, #e6b243, #faf9fa, #70e958, #89e776);
+  background-size: 300% 300%;
+  animation: background-shift 1s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Available Courses</h1>
+        <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+    </header>
+    <div class="container">
+        <div class="course">
+            <h2>O-LEVEL</h2>
+            <div class="course-footer">
+                <a href="Olevel.html"><i class="fa-solid fa-circle-info"></i> View Details</a>
+                <a href="test.html"><i class="fa-solid fa-computer"></i> Online Test</a>
+            </div>
+        </div>
+
+        <div class="course">
+            <h2>ADCA</h2>
+            <div class="course-footer">
+                <a href="ADCA.HTML"> <i class="fa-solid fa-circle-info"></i> View Details</a>
+                <a href="not.html"><i class="fa-solid fa-computer"></i> Online Test</a>
+            </div>
+        </div>
+
+        <div class="course">
+            <h2>DCA</h2>
+            <div class="course-footer">
+                <a href="DCA.HTML"><i class="fa-solid fa-circle-info"></i> View Details</a>
+                <a href="not.html"><i class="fa-solid fa-computer"></i> Online Test</a>
+            </div>
+        </div>
+
+        <div class="course">
+            <h2>CCC</h2>
+            <div class="course-footer">
+                <a href="CCC.HTML"><i class="fa-solid fa-circle-info"></i> View Details</a>
+                <a href="not.html"><i class="fa-solid fa-computer"></i> Online Test</a>
+            </div>
+        </div>
+
+        <div class="course">
+            <h2>TALLY</h2>
+            <div class="course-footer">
+                <a href="TALLY.HTML"><i class="fa-solid fa-circle-info"></i> View Details</a>
+                <a href="not.html"><i class="fa-solid fa-computer"></i> Online Test</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

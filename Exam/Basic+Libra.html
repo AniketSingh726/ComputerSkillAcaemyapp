@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Based Test</title>
+    <style>
+        body {
+            margin: 0;
+  height: 100vh;
+  background: linear-gradient(45deg, #eed687, #eed182, #fff8e0, #a0e685, #94dd84);
+  background-size: 300% 300%;
+  animation: background-shift 1s infinite ease-in-out;
+}
+
+/* Animation for the background */
+@keyframes background-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+        }
+
+        #header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #timer {
+    font-family: 'Arial', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #0e0d0d;
+    background: linear-gradient(45deg, #c90303,white, #47cc0a);
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(9, 207, 9, 0.911);
+    width: 150px;
+    margin: 20px auto;
+    animation: pulse 1.5s infinite;
+    margin-left:75%;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+    50% {
+      transform: scale(1.1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+
+
+        #logo img {
+            height: 5.2rem;
+            border: solid rgb(231, 153, 9);
+            border-radius: 2.5rem;
+        }
+
+  /* Button Container (Optional) */
+  button {
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    padding: 12px 24px;
+    margin: 10px;
+    border-radius: 25px;
+    border: none greenyellow;
+    cursor: pointer;
+    outline: none greenyellow;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Specific button colors */
+  button:nth-child(1) {
+    background: #0abb04; /* Previous button color */
+    color: rgb(142, 231, 106);
+  }
+
+  button:nth-child(2) {
+    background: #4caf50; /* Next button color */
+    color: rgb(119, 230, 152);
+  }
+
+  button:nth-child(3) {
+    background: #25ce03; /* Submit button color */
+    color: rgb(152, 219, 113);
+  }
+
+  /* Hover Effects */
+  button:hover {
+    transform: translateY(-5px); /* Slight lift effect */
+    box-shadow: 0 8px 20px rgba(219, 6, 6, 0.973); /* More prominent shadow */
+  }
+
+  /* Active/Pressed Effect */
+  button:active {
+    transform: translateY(2px); /* Button "press" effect */
+    box-shadow: 0 4px 10px rgb(231, 7, 7);
+  }
+
+  /* Focus Effect */
+  button:focus {
+    outline: none;
+    border: 2px solid #20d110;
+  }
+
+        #instructionPage, #namePage, #testPage, #resultPage {
+            margin: 20px auto;
+            max-width: 800px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #instructionPage h1, #namePage h1, #testPage h1, #resultPage h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        #options div {
+            margin-bottom: 10px;
+        }
+
+        #options label {
+            margin-left: 10px;
+        }
+
+        #result {
+            text-align: center;
+        }
+
+        #result p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header with logo and timer -->
+<div id="header">
+    <div id="logo">
+        <img src="logo.jpg" alt="Logo">
+    </div>
+    <div id="timer">Time Left: 01:00:00</div>
+</div>
+
+<!-- Instruction Page -->
+<div id="instructionPage">
+    <h1>Instructions</h1>
+    <p>1. Enter your Name and D.O.B</p>
+            </p>    अपना नाम और जन्मतिथि दर्ज करें</p>
+    <p>2. There are total 100 questions</p>
+           </p>    कुल 100 प्रश्न हैं.</p>
+    <p>3. You have 1 hour to complete the test</p>
+             </p>     परीक्षण पूरा करने के लिए आपके पास 1 घंटा है।.</p>
+    <p>4. Only objective type questions are there</p>
+             </p>    केवल वस्तुनिष्ठ प्रकार के प्रश्न होते हैं।.</p>
+    <p>5. Once you submit the exam, you cannot make changes.</p>
+           </p>   एक बार परीक्षा सबमिट करने के बाद, आप बदलाव नहीं कर सकते।</p>
+    <p>6. If time is over, the exam will be automatically submitted.</p>
+    </p>   . यदि समय समाप्त हो गया है, तो परीक्षा स्वचालित रूप से सबमिट हो जाएगी।</p>
+  <button onclick="showNamePage()">Continue</button>
+</div>
+
+<!-- Name Input Page -->
+<div id="namePage" style="display: none;">
+<color = blue><h1>Welcome to the COMPUTER SKILL ACADEMY</h1>
+    <center><h2>Ready for Basic+Libre Test of O-Level</h2></center>
+    <label for="name">Enter your NAME:</label>
+    <input type="text" id="name">
+    <label for="dob">Enter your DOB:</label>
+    <input type="text" id="dob">
+    <button onclick="startTest()">Start Test</button>
+</div>
+
+<!-- Test Questions Page -->
+<div id="testPage" style="display: none;">
+ <h1>Computer Skill Academy</h1>
+    <div id="question"></div>
+    <div id="options"></div>
+    <button onclick="previousQuestion()">Previous</button>
+    <button onclick="nextQuestion()">Next</button>
+    <button onclick="submitTest()">Submit Test</button>
+</div>
+
+<!-- Result Page -->
+<div id="resultPage" style="display: none;">
+    <h1>Result</h1>
+    <div id="result"></div>
+</div>
+
+<script>
+    let currentQuestion = 0;
+    let answers = new Array(50).fill(null);
+    let testName;
+    let timer;
+    const questions =[
+    {
+        "question": "1. Which of the following is an output device?",
+        "question_hindi": "1. निम्न में से कौन-सा एक आउटपुट डिवाइस है?",
+        "options": ["Monitor", "Keyboard", "Mouse", "Scanner"],
+        "answer": 0
+    },
+    {
+        "question": "2. What is the primary function of an operating system?",
+        "question_hindi": "2. ऑपरेटिंग सिस्टम का मुख्य कार्य क्या है?",
+        "options": ["To manage hardware and software resources", "To edit documents", "To browse the internet", "To run antivirus software"],
+        "answer": 0
+    },
+    {
+        "question": "3. Which device is used to input text into a computer?",
+        "question_hindi": "3. कंप्यूटर में पाठ दर्ज करने के लिए किस डिवाइस का उपयोग किया जाता है?",
+        "options": ["Monitor", "Keyboard", "Printer", "Speaker"],
+        "answer": 1
+    },
+    {
+        "question": "4. What is the file extension of a WordPad document?",
+        "question_hindi": "4. वर्डपैड दस्तावेज़ का फ़ाइल एक्सटेंशन क्या है?",
+        "options": [".txt", ".docx", ".rtf", ".pdf"],
+        "answer": 1
+    },
+    {
+        "question": "5. LibreOffice Writer is used for which type of task?",
+        "question_hindi": "5. लिब्रेऑफिस राइटर किस प्रकार के कार्य के लिए उपयोग किया जाता है?",
+        "options": ["Word Processing", "Spreadsheet Management", "Presentation Creation", "Database Management"],
+        "answer": 0
+    },
+    {
+        "question": "6. Which of the following is a type of software?",
+        "question_hindi": "6. निम्नलिखित में से कौन सा एक प्रकार का सॉफ़्टवेयर है?",
+        "options": ["System Software", "Application Software", "Utility Software", "All of the above"],
+        "answer": 3
+    },
+    {
+        "question": "7. What does RAM stand for?",
+        "question_hindi": "7. रैम का पूर्ण रूप क्या है?",
+        "options": ["Read Access Memory", "Random Access Memory", "Run Access Memory", "Read And Manage"],
+        "answer": 1
+    },
+    {
+        "question": "8. Which key combination is used to copy text in most applications?",
+        "question_hindi": "8. अधिकांश अनुप्रयोगों में टेक्स्ट कॉपी करने के लिए किस कुंजी संयोजन का उपयोग किया जाता है?",
+        "options": ["Ctrl + X", "Ctrl + V", "Ctrl + C", "Ctrl + Z"],
+        "answer": 2
+    },
+    {
+        "question": "9. What is the purpose of the Notepad application?",
+        "question_hindi": "9. नोटपैड अनुप्रयोग का उद्देश्य क्या है?",
+        "options": ["To create and edit text files", "To create presentations", "To manage databases", "To browse the web"],
+        "answer": 0
+    },
+    {
+        "question": "10. Which of the following is a storage device?",
+        "question_hindi": "10. निम्न में से कौन-सा एक संग्रहण उपकरण है?",
+        "options": ["Hard Disk", "Monitor", "Keyboard", "Mouse"],
+        "answer": 0
+    },
+    {
+        "question": "11. What is the default file extension for LibreOffice Writer documents?",
+        "question_hindi": "11. लिब्रेऑफिस राइटर दस्तावेजों के लिए डिफ़ॉल्ट फ़ाइल एक्सटेंशन क्या है?",
+        "options": [".docx", ".odt", ".txt", ".pdf"],
+        "answer": 1
+    },
+    {
+        "question": "12. What type of software is Microsoft Word?",
+        "question_hindi": "12. माइक्रोसॉफ्ट वर्ड किस प्रकार का सॉफ़्टवेयर है?",
+        "options": ["System Software", "Application Software", "Utility Software", "Development Software"],
+        "answer": 1
+    },
+    {
+        "question": "13. Which of the following is NOT an input device?",
+        "question_hindi": "13. निम्न में से कौन इनपुट डिवाइस नहीं है?",
+        "options": ["Mouse", "Scanner", "Printer", "Keyboard"],
+        "answer": 2
+    },
+    {
+        "question": "14. What is the primary purpose of a database management system?",
+        "question_hindi": "14. डेटाबेस प्रबंधन प्रणाली का मुख्य उद्देश्य क्या है?",
+        "options": ["To store and retrieve data", "To create presentations", "To process text", "To browse the internet"],
+        "answer": 0
+    },
+    {
+        "question": "15. Which command is used to save a file in most applications?",
+        "question_hindi": "15. अधिकांश अनुप्रयोगों में फ़ाइल को सहेजने के लिए किस कमांड का उपयोग किया जाता है?",
+        "options": ["Ctrl + S", "Ctrl + P", "Ctrl + C", "Ctrl + V"],
+        "answer": 0
+    },
+    {
+        "question": "16. What is the function of a UPS (Uninterruptible Power Supply)?",
+        "question_hindi": "16. यूपीएस (बिना बाधा बिजली आपूर्ति) का कार्य क्या है?",
+        "options": ["To provide backup power", "To increase processing speed", "To store data", "To manage applications"],
+        "answer": 0
+    },
+    {
+        "question": "17. Which of the following is an example of system software?",
+        "question_hindi": "17. निम्नलिखित में से कौन प्रणाली सॉफ़्टवेयर का एक उदाहरण है?",
+        "options": ["Operating System", "Word Processor", "Web Browser", "Antivirus"],
+        "answer": 0
+    },
+    {
+        "question": "18. Which shortcut key is used to paste copied text?",
+        "question_hindi": "18. कॉपी किए गए टेक्स्ट को चिपकाने के लिए किस शॉर्टकट कुंजी का उपयोग किया जाता है?",
+        "options": ["Ctrl + P", "Ctrl + V", "Ctrl + C", "Ctrl + X"],
+        "answer": 1
+    },
+    {
+        "question": "19. What is the purpose of a printer?",
+        "question_hindi": "19. प्रिंटर का उद्देश्य क्या है?",
+        "options": ["To display information", "To input data", "To produce a hard copy", "To store information"],
+        "answer": 2
+    },
+    {
+        "question": "20. Which device is used for long-term data storage?",
+        "question_hindi": "20. दीर्घकालिक डेटा संग्रहण के लिए किस उपकरण का उपयोग किया जाता है?",
+        "options": ["RAM", "Hard Disk", "Processor", "Cache"],
+        "answer": 1
+    },
+    {
+        "question": "21. Which device is used to display graphical data?",
+        "question_hindi": "21. ग्राफिकल डेटा प्रदर्शित करने के लिए किस उपकरण का उपयोग किया जाता है?",
+        "options": ["Monitor", "Printer", "Keyboard", "Mouse"],
+        "answer": 0
+    },
+    {
+        "question": "22. Which of the following is a programming language?",
+        "question_hindi": "22. निम्नलिखित में से कौन सी प्रोग्रामिंग भाषा है?",
+        "options": ["HTML", "Writer", "Photoshop", "Excel"],
+        "answer": 0
+    },
+    {
+        "question": "23. What is the function of a motherboard in a computer?",
+        "question_hindi": "23. कंप्यूटर में मदरबोर्ड का कार्य क्या है?",
+        "options": ["To store data", "To connect all components", "To display output", "To process data"],
+        "answer": 1
+    },
+    {
+        "question": "24. Which file format is commonly used for images?",
+        "question_hindi": "24. छवियों के लिए सामान्यतः किस फ़ाइल प्रारूप का उपयोग किया जाता है?",
+        "options": [".jpg", ".docx", ".exe", ".html"],
+        "answer": 0
+    },
+    {
+        "question": "25. What does the shortcut Ctrl + N do?",
+        "question_hindi": "25. शॉर्टकट Ctrl + N क्या करता है?",
+        "options": ["Creates a new file", "Saves a file", "Opens an existing file", "Closes the application"],
+        "answer": 0
+    },
+    {
+        "question": "26. Which device is used to record sound?",
+        "question_hindi": "26. ध्वनि रिकॉर्ड करने के लिए किस उपकरण का उपयोग किया जाता है?",
+        "options": ["Microphone", "Speaker", "Monitor", "Printer"],
+        "answer": 0
+    },
+    {
+        "question": "27. Which of the following is NOT a type of computer memory?",
+        "question_hindi": "27. निम्नलिखित में से कौन कंप्यूटर मेमोरी का प्रकार नहीं है?",
+        "options": ["RAM", "ROM", "CPU", "Cache"],
+        "answer": 2
+    },
+       {
+            "question": "28. What is the Start Menu in Windows 10?",
+            "question_hindi": "28. विंडोज 10 में स्टार्ट मेनू क्या है?",
+            "options": ["A menu for launching apps", "A toolbar for managing files", "A dialog box for system settings", "A program for drawing"],
+            "answer": 0
+        },
+        {
+            "question": "29. How do you open the Task Manager in Windows 10?",
+            "question_hindi": "29. विंडोज 10 में टास्क मैनेजर कैसे खोलते हैं?",
+            "options": ["Ctrl + Shift + Delete", "Ctrl + Shift + Esc", "Alt + F4", "Windows + T"],
+            "answer": 1
+        },
+        {
+            "question": "30. What is the purpose of the Control Panel in Windows 10?",
+            "question_hindi": "30. विंडोज 10 में कंट्रोल पैनल का उद्देश्य क्या है?",
+            "options": ["Manage hardware and software settings", "Play media files", "Browse the internet", "Write documents"],
+            "answer": 0
+        },
+        {
+            "question": "31. Which feature in Windows 10 allows you to manage multiple desktops?",
+            "question_hindi": "31. विंडोज 10 में कौन सी विशेषता आपको कई डेस्कटॉप प्रबंधित करने की अनुमति देती है?",
+            "options": ["Task View", "File Explorer", "Cortana", "Settings"],
+            "answer": 0
+        },
+        {
+            "question": "32. What is Notepad used for?",
+            "question_hindi": "32. नोटपैड का उपयोग किस लिए किया जाता है?",
+            "options": ["Text Editing", "Spreadsheet Management", "Presentation Creation", "Database Management"],
+            "answer": 0
+        },
+        {
+            "question": "33. How do you save a file in Notepad?",
+            "question_hindi": "33. नोटपैड में फ़ाइल कैसे सहेजते हैं?",
+            "options": ["File > Save", "Home > Save", "Insert > Save", "Review > Save"],
+            "answer": 0
+        },
+        {
+            "question": "34. Which file extension is commonly associated with Notepad?",
+            "question_hindi": "34. कौन सा फ़ाइल एक्सटेंशन नोटपैड के साथ सामान्यतः जुड़ा होता है?",
+            "options": [".docx", ".xlsx", ".pptx", ".txt"],
+            "answer": 3
+        },
+        {
+            "question": "35. What is WordPad used for?",
+            "question_hindi": "35. वर्डपैड का उपयोग किस लिए किया जाता है?",
+            "options": ["Text Editing and Photo Adding In Document", "Spreadsheet Management", "Presentation Creation", "Database Management"],
+            "answer": 0
+        },
+        {
+            "question": "36. How do you format text in WordPad?",
+            "question_hindi": "36. वर्डपैड में टेक्स्ट को कैसे प्रारूपित करते हैं?",
+            "options": ["Using the Format menu", "Using the Insert menu", "Using the View menu", "Using the Home menu"],
+            "answer": 0
+        },
+        {
+            "question": "37. Which feature allows you to change the font size in WordPad?",
+            "question_hindi": "37. कौन सी विशेषता आपको वर्डपैड में फॉन्ट का आकार बदलने की अनुमति देती है?",
+            "options": ["Font Size dropdown", "Insert > Font", "View > Font Size", "Home > Font Size"],
+            "answer": 0
+        },
+        {
+            "question": "38. How do you print a document in WordPad?",
+            "question_hindi": "38. वर्डपैड में एक दस्तावेज़ कैसे प्रिंट करते हैं?",
+            "options": ["File > Print", "Home > Print", "Insert > Print", "Review > Print"],
+            "answer": 0
+        },
+        {
+            "question": "39. What is the default file extension for WordPad documents?",
+            "question_hindi": "39. वर्डपैड दस्तावेज़ों के लिए डिफ़ॉल्ट फ़ाइल एक्सटेंशन क्या है?",
+            "options": [".docx", ".rtf", ".txt", ".pdf"],
+            "answer": 0
+        },
+        {
+            "question": "40. Which tool in Windows  allows you to take screenshots?",
+            "question_hindi": "40. विंडोज में कौन सा टूल आपको स्क्रीनशॉट लेने की अनुमति देता है?",
+            "options": ["Snipping Tool", "Paint", "WordPad", "Notepad"],
+            "answer": 0
+        },
+        {
+            "question": "41. How do you open File Explorer in Windows ?",
+            "question_hindi": "41. विंडोज  में फाइल एक्सप्लोरर कैसे खोलते हैं?",
+            "options": ["Windows + E", "Ctrl + E", "Alt + E", "Shift + E"],
+            "answer": 0
+        },
+        {
+            "question": "42. What is the default browser in Windows 10?",
+            "question_hindi": "42. विंडोज 10 में डिफ़ॉल्ट ब्राउज़र क्या है?",
+            "options": ["Microsoft Edge", "Internet Explorer", "Google Chrome", "Mozilla Firefox"],
+            "answer": 0
+        },
+        {
+            "question": "43. How do you change the desktop background in Windows 10?",
+            "question_hindi": "43. विंडोज 10 में डेस्कटॉप बैकग्राउंड कैसे बदलते हैं?",
+            "options": ["Right-click on desktop > Personalize", "Right-click on Picture and set as  desktop Background", "A and B", "File Explorer > View"],
+            "answer": 2
+        },
+        {
+            "question": "44. What is the function of the F1 key in most Windows applications?",
+            "question_hindi": "44. अधिकांश विंडोज एप्लिकेशन में F1 कुंजी का कार्य क्या है?",
+            "options": ["Help", "Save", "Print", "Close"],
+            "answer": 0
+        },
+         {
+            "question": "45. How do you rename a file ?",
+            "question_hindi": "45. एक फ़ाइल का नाम कैसे बदलते हैं?",
+            "options": ["Right-click > Rename", "File > Rename", "Edit > Rename", "View > Rename"],
+            "answer": 0
+        },
+        {
+            "question": "46. How do you create a new folder ?",
+            "question_hindi": "46.  एक नया फ़ोल्डर कैसे बनाते हैं?",
+            "options": ["Right-click > New > Folder", "File > New > Folder", "Edit > New > Folder", "View > New > Folder"],
+            "answer": 0
+        },
+        {
+            "question": "47. What does the shortcut Ctrl + Z do in most Windows applications?",
+            "question_hindi": "47. अधिकांश विंडोज एप्लिकेशन में Ctrl + Z शॉर्टकट क्या करता है?",
+            "options": ["Undo", "Redo", "Save", "Open"],
+            "answer": 0
+        },
+        
+        {
+            "question": "48. In Windows 10, which feature allows you to organize open windows and applications?",
+            "question_hindi": "48. विंडोज 10 में, कौन सी विशेषता आपको खुले विंडोज और एप्लिकेशन को व्यवस्थित करने की अनुमति देती है?",
+            "options": ["Task View", "Action Center", "Start Menu", "File Explorer"],
+            "answer": 0
+        },
+        
+        {
+            "question": "49. How do you minimize all open windows in Windows 10?",
+            "question_hindi": "49. विंडोज 10 में सभी खुले विंडोज को कैसे कम करें?",
+            "options": ["Windows + M", "Windows + D", "Ctrl + M", "Alt + M"],
+            "answer": 1
+        },
+        {
+        "question": "50. How can you insert a comment in a cell?",
+        "question_hindi": "50. सेल में टिप्पणी कैसे जोड़ सकते हैं?",
+        "options": [
+            "Insert > Comment",
+            "Format > Add Note",
+            "Tools > Insert Comment",
+            "Edit > Note"
+        ],
+        "answer": 0
+  
+    },
+        {
+        "question": "51. Which function in LibreOffice Calc is used to round a number to the nearest integer?",
+        "question_hindi": "51. LibreOffice Calc में किसी संख्या को निकटतम पूर्णांक तक राउंड करने के लिए कौन-सा फंक्शन उपयोग किया जाता है?",
+        "options": ["ROUND()", "INT()", "TRUNC()", "CEILING()"],
+        "answer": 0
+    },
+    {
+        "question": "52. What does the 'Pivot Table' feature do in LibreOffice Calc?",
+        "question_hindi": "52. LibreOffice Calc में 'पिवट टेबल' फीचर क्या करता है?",
+        "options": [
+            "Summarizes and analyzes data",
+            "Adds conditional formatting",
+            "Splits cells into rows and columns",
+            "Performs text concatenation"
+        ],
+        "answer": 0
+    },
+    {
+        "question": "53. How do you rename a sheet in LibreOffice Calc?",
+        "question_hindi": "53. LibreOffice Calc में शीट का नाम कैसे बदलते हैं?",
+        "options": [
+            "Right-click the sheet tab and select 'Rename'",
+            "File > Rename",
+            "Insert > Rename Sheet",
+            "Edit > Rename Tab"
+        ],
+        "answer": 0
+    },
+    {
+        "question": "54. Which function in LibreOffice Calc calculates the current date?",
+        "question_hindi": "54. LibreOffice Calc में वर्तमान तारीख की गणना करने के लिए कौन-सा फंक्शन उपयोग किया जाता है?",
+        "options": ["DATE()", "NOW()", "TODAY()", "CURRENTDATE()"],
+        "answer": 2
+    },
+    {
+        "question": "55. How do you lock specific cells in LibreOffice Calc?",
+        "question_hindi": "55. LibreOffice Calc में विशिष्ट सेल्स को कैसे लॉक करते हैं?",
+        "options": [
+            "Format > Cells > Cell Protection",
+            "Insert > Lock Cells",
+            "Tools > Lock Specific Cells",
+            "Data > Lock Selection"
+        ],
+        "answer": 0
+    },
+    {
+        "question": "56. What does the COUNTIF function do in LibreOffice Calc?",
+        "question_hindi": "56. LibreOffice Calc में COUNTIF फंक्शन क्या करता है?",
+        "options": [
+            "Counts cells based on a condition",
+            "Counts the total number of rows",
+            "Counts blank cells",
+            "Counts the length of a text string"
+        ],
+        "answer": 0
+    },
+    {
+        "question": "57. How can you apply conditional formatting in LibreOffice Calc?",
+        "question_hindi": "57. LibreOffice Calc में कंडीशनल फॉर्मेटिंग कैसे लागू करते हैं?",
+        "options": [
+            "Format > Conditional Formatting",
+            "Data > Conditional Formatting",
+            "Insert > Conditional Format",
+            "Tools > Format Conditions"
+        ],
+        "answer": 0
+    },
+    {
+        "question": "58. Which function is used to join multiple text strings in LibreOffice Calc?",
+        "question_hindi": "58. LibreOffice Calc में कई टेक्स्ट स्ट्रिंग्स को जोड़ने के लिए कौन-सा फंक्शन उपयोग किया जाता है?",
+        "options": ["TEXTJOIN()", "JOIN()", "CONCAT()", "MERGE()"],
+        "answer": 2
+    },
+    {
+        "question": "59. How can you duplicate an entire sheet in LibreOffice Calc?",
+        "question_hindi": "59. LibreOffice Calc में पूरी शीट को कैसे डुप्लिकेट करते हैं?",
+        "options": [
+            "Right-click the sheet tab and select 'Move or Copy Sheet'",
+            "Insert > Duplicate Sheet",
+            "File > Copy Sheet",
+            "Edit > Clone Sheet"
+        ],
+        "answer": 0
+    },
+    {
+        "question": "60. What is the shortcut for inserting a new row in LibreOffice Calc?",
+        "question_hindi": "60. LibreOffice Calc में नई पंक्ति जोड़ने के लिए शॉर्टकट क्या है?",
+        "options": ["Ctrl + Shift + +", "Ctrl + Alt + +", "Ctrl + I", "Alt + Insert"],
+        "answer": 0
+    },    
+        {
+        "question": "61. What is LibreOffice Impress used for?",
+        "question_hindi": "61. LibreOffice Impress का उपयोग किसके लिए किया जाता है?",
+        "options": [
+            "Creating presentations",
+            "Editing spreadsheets",
+            "Writing documents",
+            "Managing databases"
+        ],
+        "answer": 0
+    },
+    {
+        "question": "62. Which file format is the default for saving presentations in LibreOffice Impress?",
+        "question_hindi": "62. LibreOffice Impress में प्रस्तुतियों को सहेजने के लिए डिफ़ॉल्ट फ़ाइल प्रारूप क्या है?",
+        "options": [".odp", ".ppt", ".pptx", ".odt"],
+        "answer": 0
+    },
+    {
+        "question": "63. How do you insert a new slide in LibreOffice Impress?",
+        "question_hindi": "63. LibreOffice Impress में नई स्लाइड कैसे जोड़ते हैं?",
+        "options": [
+            "Insert > Slide",
+            "File > New Slide",
+            "View > Add Slide",
+            "Tools > Insert Slide"
+        ],
+        "answer": 0
+    },
+    {
+        "question": "64. Which shortcut key is used to start a slideshow in LibreOffice Impress?",
+        "question_hindi": "64. LibreOffice Impress में स्लाइड शो शुरू करने के लिए कौन-सी शॉर्टकट कुंजी का उपयोग किया जाता है?",
+        "options": ["F5", "Ctrl + F5", "F9", "Shift + F5"],
+        "answer": 0
+    },
+    {
+        "question": "65. How can you apply a slide layout in LibreOffice Impress?",
+        "question_hindi": "65. LibreOffice Impress में स्लाइड लेआउट कैसे लागू करें?",
+        "options": [
+            "Format > Slide Layout",
+            "Insert > Layout",
+            "View > Layout Options",
+            "Slide > Apply Layout"
+        ],
+        "answer": 0
+    },
+    {
+        "question": "66. What is the use of the 'Master Slide' in LibreOffice Impress?",
+        "question_hindi": "66. LibreOffice Impress में 'मास्टर स्लाइड' का उपयोग क्या है?",
+        "options": [
+            "To define a common design for all slides",
+            "To add animations to slides",
+            "To create a new slide",
+            "To set up hyperlinks"
+        ],
+        "answer": 0
+    },
+    {
+        "question": "67. Which view allows you to see all slides as thumbnails in LibreOffice Impress?",
+        "question_hindi": "67. LibreOffice Impress में कौन-सा व्यू सभी स्लाइड्स को थंबनेल्स के रूप में दिखाता है?",
+        "options": ["Slide Sorter", "Normal View", "Outline View", "Notes View"],
+        "answer": 0
+    },
+    {
+        "question": "68. How can you add transitions between slides in LibreOffice Impress?",
+        "question_hindi": "68. LibreOffice Impress में स्लाइड्स के बीच ट्रांजिशन कैसे जोड़ें?",
+        "options": [
+            "Slide > Slide Transition",
+            "View > Transition Effects",
+            "Insert > Slide Transition",
+            "Tools > Add Transition"
+        ],
+        "answer": 0
+    },
+    {
+        "question": "69. Which feature allows you to add animations to objects in a slide?",
+        "question_hindi": "69. LibreOffice Impress में स्लाइड के ऑब्जेक्ट्स में एनिमेशन जोड़ने की सुविधा कौन-सी है?",
+        "options": [
+            "Custom Animation",
+            "Slide Transition",
+            "Object Effects",
+            "Animation Layout"
+        ],
+        "answer": 0
+    },
+    {
+        "question": "70. What is the use of the 'Outline View' in LibreOffice Impress?",
+        "question_hindi": "70. LibreOffice Impress में 'आउटलाइन व्यू' का उपयोग क्या है?",
+        "options": [
+            "To view the text content of all slides",
+            "To view the notes for a slide",
+            "To see thumbnails of slides",
+            "To display slide transitions"
+        ],
+        "answer": 0
+    },
+        {
+        "question": "71. Which option is used to insert a video into a slide?",
+        "question_hindi": "71. स्लाइड में वीडियो डालने के लिए कौन-सा विकल्प उपयोग किया जाता है?",
+        "options": [
+            "Insert > Media > Video",
+            "Slide > Insert Video",
+            "Format > Add Video",
+            "Tools > Media"
+        ],
+        "answer": 0
+    },
+    {
+        "question": "72. How do you export a presentation as a PDF in LibreOffice Impress?",
+        "question_hindi": "72. LibreOffice Impress में प्रेजेंटेशन को PDF के रूप में कैसे निर्यात करें?",
+        "options": [
+            "File > Export As > Export as PDF",
+            "Slide > Export to PDF",
+            "Tools > Export PDF",
+            "Insert > Export Presentation"
+        ],
+        "answer": 0
+    },
+        {
+        "question": "73. What does the 'Handout View' in LibreOffice Impress allow you to do?",
+        "question_hindi": "73. LibreOffice Impress में 'हैंडआउट व्यू' क्या करने की अनुमति देता है?",
+        "options": [
+            "Design how slides will appear in printed handouts",
+            "Edit the content of slides",
+            "Create slide transitions",
+            "Add speaker notes"
+        ],
+        "answer": 0
+    },
+        {
+        "question": "75. How can you add speaker notes in LibreOffice Impress?",
+        "question_hindi": "75. LibreOffice Impress में स्पीकर नोट्स कैसे जोड़ें?",
+        "options": [
+            "View > Notes",
+            "Insert > Notes",
+            "Slide > Add Notes",
+            "Tools > Speaker Notes"
+        ],
+        "answer": 0
+    },
+    {
+        "question": "76. Which feature allows you to rehearse timings for a presentation?",
+        "question_hindi": "76. कौन-सी सुविधा प्रेजेंटेशन के लिए समय का अभ्यास करने की अनुमति देती है?",
+        "options": [
+            "Slide Show > Rehearse Timings",
+            "Tools > Timings",
+            "View > Slide Timings",
+            "Insert > Timer"
+        ],
+        "answer": 0
+    },
+    {
+        "question": "77. How can you insert a table in a slide?",
+        "question_hindi": "77. स्लाइड में टेबल कैसे जोड़ सकते हैं?",
+        "options": [
+            "Insert > Table",
+            "Slide > Add Table",
+            "Tools > Insert Table",
+            "Format > Add Table"
+        ],
+        "answer": 0
+    },
+    {
+        "question": "78. What is the use of the 'Slide Master' in LibreOffice Impress?",
+        "question_hindi": "78. LibreOffice Impress में 'स्लाइड मास्टर' का उपयोग क्या है?",
+        "options": [
+            "To maintain consistency in design",
+            "To create transitions",
+            "To add animations",
+            "To edit content on a specific slide"
+        ],
+        "answer": 0
+    },
+    {
+        "question": "79. Which format is used for exporting a presentation as an image?",
+        "question_hindi": "79. प्रेजेंटेशन को इमेज के रूप में निर्यात करने के लिए कौन-सा फॉर्मेट उपयोग किया जाता है?",
+        "options": [".png", ".odp", ".ppt", ".odt"],
+        "answer": 0
+    },
+    {
+        "question": "80. How do you add hyperlinks to a presentation?",
+        "question_hindi": "80. प्रेजेंटेशन में हाइपरलिंक कैसे जोड़ें?",
+        "options": [
+            "Insert > Hyperlink",
+            "Tools > Add Hyperlink",
+            "Slide > Hyperlink",
+            "Format > Insert Link"
+        ],
+        "answer": 0
+    },    
+    {
+        "question": "81. What is LibreOffice Base primarily used for?",
+        "question_hindi": "81. LibreOffice Base का मुख्य उपयोग किसके लिए किया जाता है?",
+        "options": [
+            "Managing databases",
+            "Creating spreadsheets",
+            "Designing presentations",
+            "Writing documents"
+        ],
+        "answer": 0
+    },
+    {
+        "question": "82. Which of the following is a common database file format supported by LibreOffice Base?",
+        "question_hindi": "82. निम्नलिखित में से कौन-सा डेटाबेस फ़ाइल प्रारूप LibreOffice Base द्वारा समर्थित है?",
+        "options": [".odb", ".xls", ".doc", ".ppt"],
+        "answer": 0
+    },
+    {
+        "question": "83. What is the function of the 'Form' in LibreOffice Base?",
+        "question_hindi": "83. LibreOffice Base में 'फॉर्म' का क्या कार्य है?",
+        "options": [
+            "To create a user-friendly interface for data entry",
+            "To store raw data",
+            "To generate reports",
+            "To perform calculations"
+        ],
+        "answer": 0
+    },
+    {
+        "question": "84. How do you create a new table in LibreOffice Base?",
+        "question_hindi": "84. LibreOffice Base में एक नई तालिका कैसे बनाएं?",
+        "options": [
+            "Go to Tables and click 'Create Table in Design View'",
+            "File > New > Table",
+            "Insert > New Table",
+            "View > Add Table"
+        ],
+        "answer": 0
+    },
+    {
+        "question": "85. What type of relationship can be created between two tables in LibreOffice Base?",
+        "question_hindi": "85. LibreOffice Base में दो तालिकाओं के बीच किस प्रकार का संबंध बनाया जा सकता है?",
+        "options": [
+            "One-to-one, One-to-many, Many-to-many",
+            "One-to-one only",
+            "One-to-many only",
+            "Many-to-many only"
+        ],
+        "answer": 0
+    },
+    {
+        "question": "86. Which query language does LibreOffice Base use?",
+        "question_hindi": "86. LibreOffice Base किस क्वेरी भाषा का उपयोग करता है?",
+        "options": ["SQL", "Python", "JavaScript", "HTML"],
+        "answer": 0
+    },
+    {
+        "question": "87. How can you generate a report in LibreOffice Base?",
+        "question_hindi": "87. LibreOffice Base में एक रिपोर्ट कैसे जनरेट करें?",
+        "options": [
+            "Use the Report Builder wizard",
+            "Insert > New Report",
+            "File > Generate Report",
+            "Tools > Create Report"
+        ],
+        "answer": 0
+    },
+    {
+        "question": "88. Which data type would you use for a field that stores dates in LibreOffice Base?",
+        "question_hindi": "88. LibreOffice Base में तारीखों को स्टोर करने वाले फील्ड के लिए कौन-सा डेटा प्रकार उपयोग करें?",
+        "options": ["Date/Time", "Text", "Number", "Boolean"],
+        "answer": 0
+    },
+    {
+        "question": "89. What is the purpose of the 'Primary Key' in a table?",
+        "question_hindi": "89. तालिका में 'प्राइमरी की' का उद्देश्य क्या है?",
+        "options": [
+            "To uniquely identify each record",
+            "To format data",
+            "To allow duplicate records",
+            "To link two tables"
+        ],
+        "answer": 0
+    },
+    {
+        "question": "90. How can you establish a relationship between two tables?",
+        "question_hindi": "90. दो तालिकाओं के बीच संबंध कैसे स्थापित करें?",
+        "options": [
+            "Use Tools > Relationships",
+            "Insert > Add Relationship",
+            "File > Create Relationship",
+            "View > Relationship Manager"
+        ],
+        "answer": 0
+    },
+    {
+        "question": "91. Which option allows you to filter data in LibreOffice Base?",
+        "question_hindi": "91. LibreOffice Base में डेटा को फ़िल्टर करने की अनुमति कौन-सा विकल्प देता है?",
+        "options": [
+            "Apply a Query",
+            "Sort Data",
+            "Export Data",
+            "Create a Report"
+        ],
+        "answer": 0
+    },
+    {
+        "question": "92. What does the 'AutoValue' property in LibreOffice Base do?",
+        "question_hindi": "92. LibreOffice Base में 'ऑटोवैल्यू' प्रॉपर्टी क्या करती है?",
+        "options": [
+            "Automatically generates a unique value for each record",
+            "Converts text to uppercase",
+            "Auto-formats date values",
+            "Links tables automatically"
+        ],
+        "answer": 0
+    },
+    {
+        "question": "93. How can you switch to Design View in a table?",
+        "question_hindi": "93. तालिका में डिज़ाइन व्यू पर कैसे स्विच करें?",
+        "options": [
+            "Right-click the table and select 'Edit'",
+            "File > Open in Design",
+            "Insert > Design View",
+            "Tools > Table Design"
+        ],
+        "answer": 0
+    },
+    {
+        "question": "94. What is the purpose of the 'Foreign Key' in LibreOffice Base?",
+        "question_hindi": "94. LibreOffice Base में 'फॉरेन की' का उद्देश्य क्या है?",
+        "options": [
+            "To link one table to another",
+            "To uniquely identify records",
+            "To filter data",
+            "To sort data"
+        ],
+        "answer": 0
+    },
+    {
+        "question": "95. Which view is used to enter data into a table?",
+        "question_hindi": "95. तालिका में डेटा दर्ज करने के लिए कौन-सा व्यू उपयोग किया जाता है?",
+        "options": ["Data View", "Design View", "SQL View", "Relationship View"],
+        "answer": 0
+    },
+    {
+        "question": "96. How can you sort data in ascending order in LibreOffice Base?",
+        "question_hindi": "96. LibreOffice Base में डेटा को आरोही क्रम में कैसे सॉर्ट करें?",
+        "options": [
+            "Click on the column header and select 'Sort Ascending'",
+            "Insert > Sort Ascending",
+            "File > Data Sort",
+            "Tools > Ascend Sort"
+        ],
+        "answer": 0
+    },
+    {
+        "question": "97. Which tool helps create queries visually in LibreOffice Base?",
+        "question_hindi": "97. LibreOffice Base में विजुअली क्वेरी बनाने में कौन-सा टूल मदद करता है?",
+        "options": [
+            "Query Design",
+            "SQL Command Line",
+            "Report Builder",
+            "Relationship Editor"
+        ],
+        "answer": 0
+    },
+    {
+        "question": "98. What is the purpose of the 'Index' in a table?",
+        "question_hindi": "98. तालिका में 'इंडेक्स' का उद्देश्य क्या है?",
+        "options": [
+            "To speed up data retrieval",
+            "To delete duplicate records",
+            "To filter records",
+            "To format fields"
+        ],
+        "answer": 0
+    },
+    {
+        "question": "99. How can you create a drop-down list in a form?",
+        "question_hindi": "99. फॉर्म में ड्रॉपडाउन सूची कैसे बनाएं?",
+        "options": [
+            "Use the Combo Box control",
+            "Insert > List Control",
+            "View > Add Dropdown",
+            "Tools > Dropdown Manager"
+        ],
+        "answer": 0
+    },
+    {
+        "question": "100. Which component is used to display specific records in LibreOffice Base?",
+        "question_hindi": "100. LibreOffice Base में विशिष्ट रिकॉर्ड दिखाने के लिए किस घटक का उपयोग किया जाता है?",
+        "options": ["Query", "Table", "Form", "Report"],
+        "answer": 0
+      }
+    ];
+
+    function showNamePage() {
+        document.getElementById('instructionPage').style.display = 'none';
+        document.getElementById('namePage').style.display = 'block';
+    }
+
+    function startTest() {
+        const name = document.getElementById('name').value;
+        const dob = document.getElementById('dob').value;
+
+        if (!name || !dob) {
+            alert("Please enter your name and date of birth.");
+            return;
+        }
+
+        testName = name;
+        document.getElementById('namePage').style.display = 'none';
+        document.getElementById('testPage').style.display = 'block';
+
+        startTimer(60 * 60, document.getElementById('timer'));
+        showQuestion();
+    }
+
+    function startTimer(duration, display) {
+        let timer = duration, minutes, seconds;
+        const interval = setInterval(() => {
+            minutes = parseInt(timer / 60, 10);
+            seconds = parseInt(timer % 60, 10);
+
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            display.textContent = `Time Left: ${minutes}:${seconds}`;
+
+            if (--timer < 0) {
+                clearInterval(interval);
+                submitTest();
+            }
+        }, 1000);
+    }
+
+    function showQuestion() {
+        const questionEl = document.getElementById('question');
+        const optionsEl = document.getElementById('options');
+        const question = questions[currentQuestion];
+
+        questionEl.innerHTML = `
+            <p>${question.question}</p>
+            <p>${question.question_hindi}</p>
+        `;
+
+	const labels = ['a', 'b', 'c', 'd']; // Labels for the options
+
+        optionsEl.innerHTML = question.options.map((option, index) => `
+            <div>
+                <input type="radio" name="option" value="${index}" ${answers[currentQuestion] === index ? 'checked' : ''}>
+                <label>${option}</label>
+            </div>
+        `).join('');
+    }
+
+    function nextQuestion() {
+        saveAnswer();
+        if (currentQuestion < questions.length - 1) {
+            currentQuestion++;
+            showQuestion();
+        }
+    }
+
+    function previousQuestion() {
+        saveAnswer();
+        if (currentQuestion > 0) {
+            currentQuestion--;
+            showQuestion();
+        }
+    }
+
+    function saveAnswer() {
+        const selectedOption = document.querySelector('input[name="option"]:checked');
+        if (selectedOption) {
+            answers[currentQuestion] = parseInt(selectedOption.value);
+        }
+    }
+
+    function submitTest() {
+        saveAnswer();
+        const resultEl = document.getElementById('result');
+        let score = 0;
+        answers.forEach((answer, index) => {
+            if (answer === questions[index].answer) {
+                score++;
+            }
+        });
+
+        document.getElementById('testPage').style.display = 'none';
+        resultEl.innerHTML = `
+            <p>Name: ${testName}</p>
+            <p>Score: ${score} / ${questions.length}</p>
+        `;
+        document.getElementById('resultPage').style.display = 'block';
+    }
+// Additional JavaScript code to calculate and display result details
+    function calculateResultDetails() {
+        const totalQuestions = questions.length;
+        const attemptedQuestions = answers.filter(answer => answer !== null).length;
+        const correctAnswers = answers.filter((answer, index) => answer === questions[index].answer).length;
+        const incorrectAnswers = attemptedQuestions - correctAnswers;
+        const percentage = (correctAnswers / totalQuestions) * 100;
+
+        return {
+            totalQuestions,
+            attemptedQuestions,
+            correctAnswers,
+            incorrectAnswers,
+            percentage
+        };
+    }
+
+    function displayResultDetails() {
+        const resultDetails = calculateResultDetails();
+        const resultEl = document.getElementById('result');
+
+        resultEl.innerHTML = `
+            <p>Date: ${new Date().toLocaleDateString()}</p>
+            <p>Name: ${testName}</p>
+            <p>Total Questions: ${resultDetails.totalQuestions}</p>
+            <p>Attempted Questions: ${resultDetails.attemptedQuestions}</p>
+            <p>Correct Answers: ${resultDetails.correctAnswers}</p>
+            <p>Incorrect Answers: ${resultDetails.incorrectAnswers}</p>
+            <p>Percentage: ${resultDetails.percentage.toFixed(2)}%</p>
+        `;
+    }
+function submitTest() {
+    saveAnswer();
+    const resultEl = document.getElementById('result');
+    let score = 0;
+    const incorrectAnswers = [];
+    let attemptedQuestions = 0;
+
+    answers.forEach((answer, index) => {
+        if (answer === null) {
+            return; // Skip unanswered questions
+        }
+        attemptedQuestions++;
+        if (answer === questions[index].answer) {
+            score++;
+        } else {
+            incorrectAnswers.push(index + 1);
+        }
+    });
+
+    const totalQuestions = questions.length;
+    const percentage = ((score / totalQuestions) * 100).toFixed(2);
+
+    // Display the result
+    resultEl.innerHTML = `
+        <p>Date: ${new Date().toLocaleDateString()}</p>
+        <p>Name: ${testName}</p>
+        <p>Total Questions: ${totalQuestions}</p>
+        <p>Attempted Questions: ${attemptedQuestions}</p>
+        <p>Correct Answers: ${score}</p>
+        <p>Incorrect Answers: ${incorrectAnswers.length}</p>
+        <p>Percentage: ${percentage}%</p>
+    `;
+
+    // Display images for incorrect answers
+    const imageContainer = document.createElement('div');
+    incorrectAnswers.forEach((questionIndex) => {
+        const img = document.createElement('img');
+        img.src = generateQuestionImage(questionIndex - 1); // -1 because index is 0-based
+        imageContainer.appendChild(img);
+    });
+    resultEl.appendChild(imageContainer);
+
+    document.getElementById('testPage').style.display = 'none';
+    document.getElementById('resultPage').style.display = 'block';
+}
+
+
+function generateQuestionImage(questionIndex) {
+    const canvas = document.createElement('canvas');
+    canvas.width = 800;
+    canvas.height = 400;
+    const context = canvas.getContext('2d');
+
+    // Draw question text
+    context.font = '20px Arial';
+    context.fillText(questions[questionIndex].question, 20, 40);
+    context.fillText(questions[questionIndex].question_hindi, 20, 80);
+
+    // Draw correct option
+    const correctOption = questions[questionIndex].options[questions[questionIndex].answer];
+    context.fillText(`Correct Option: ${correctOption}`, 20, 120);
+
+    // Draw user's selected option
+    const userSelectedOptionIndex = answers[questionIndex];
+    const userSelectedOption = questions[questionIndex].options[userSelectedOptionIndex];
+    context.fillText(`User's Selected Option: ${userSelectedOption}`, 20, 160);
+
+    return canvas.toDataURL(); // Return data URL of the canvas
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Based Test</title>
+    <style>
+        body {
+            margin: 0;
+  height: 100vh;
+  background: linear-gradient(45deg, #eed687, #eed182, #fff8e0, #a0e685, #94dd84);
+  background-size: 300% 300%;
+  animation: background-shift 1s infinite ease-in-out;
+}
+
+/* Animation for the background */
+@keyframes background-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+        }
+
+        #header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+  #timer {
+    font-family: 'Arial', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #0e0d0d;
+    background: linear-gradient(45deg, #c90303,white, #47cc0a);
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(9, 207, 9, 0.911);
+    width: 150px;
+    margin: 20px auto;
+    animation: pulse 1.5s infinite;
+    margin-left:75%;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+    50% {
+      transform: scale(1.1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+
+
+        #logo img {
+            height: 5.2rem;
+            border: solid rgb(231, 153, 9);
+            border-radius: 2.5rem;
+        }
+
+  /* Button Container (Optional) */
+  button {
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    padding: 12px 24px;
+    margin: 10px;
+    border-radius: 25px;
+    border: none greenyellow;
+    cursor: pointer;
+    outline: none greenyellow;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Specific button colors */
+  button:nth-child(1) {
+    background: #0abb04; /* Previous button color */
+    color: rgb(142, 231, 106);
+  }
+
+  button:nth-child(2) {
+    background: #4caf50; /* Next button color */
+    color: rgb(119, 230, 152);
+  }
+
+  button:nth-child(3) {
+    background: #25ce03; /* Submit button color */
+    color: rgb(152, 219, 113);
+  }
+
+  /* Hover Effects */
+  button:hover {
+    transform: translateY(-5px); /* Slight lift effect */
+    box-shadow: 0 8px 20px rgba(219, 6, 6, 0.973); /* More prominent shadow */
+  }
+
+  /* Active/Pressed Effect */
+  button:active {
+    transform: translateY(2px); /* Button "press" effect */
+    box-shadow: 0 4px 10px rgb(231, 7, 7);
+  }
+
+  /* Focus Effect */
+  button:focus {
+    outline: none;
+    border: 2px solid #20d110;
+  }
+
+
+
+        #instructionPage, #namePage, #testPage, #resultPage {
+            margin: 20px auto;
+            max-width: 800px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #instructionPage h1, #namePage h1, #testPage h1, #resultPage h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        #options div {
+            margin-bottom: 10px;
+        }
+
+        #options label {
+            margin-left: 10px;
+        }
+
+        #result {
+            text-align: center;
+        }
+
+        #result p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header with logo and timer -->
+<div id="header">
+    <div id="logo">
+        <img src="logo.jpg" alt="Logo">
+    </div>
+    <div id="timer">Time Left: 01:00:00</div>
+</div>
+
+<!-- Instruction Page -->
+<div id="instructionPage">
+    <h1>Instructions</h1>
+    <p>1. Enter your Name and D.O.B</p>
+            </p>    अपना नाम और जन्मतिथि दर्ज करें</p>
+    <p>2. There are total 100 questions</p>
+           </p>    कुल 100 प्रश्न हैं.</p>
+    <p>3. You have 1 hour to complete the test</p>
+             </p>     परीक्षण पूरा करने के लिए आपके पास 1 घंटा है।.</p>
+    <p>4. Only objective type questions are there</p>
+             </p>    केवल वस्तुनिष्ठ प्रकार के प्रश्न होते हैं।.</p>
+    <p>5. Once you submit the exam, you cannot make changes.</p>
+           </p>   एक बार परीक्षा सबमिट करने के बाद, आप बदलाव नहीं कर सकते।</p>
+    <p>6. If time is over, the exam will be automatically submitted.</p>
+    </p>   . यदि समय समाप्त हो गया है, तो परीक्षा स्वचालित रूप से सबमिट हो जाएगी।</p>
+  <button onclick="showNamePage()">Continue</button>
+</div>
+
+<!-- Name Input Page -->
+<div id="namePage" style="display: none;">
+<color = blue><h1>Welcome to the COMPUTER SKILL ACADEMY</h1>
+    <center><h2>Ready for Basic Test of O-Level</h2></center>
+    <label for="name">Enter your NAME:</label>
+    <input type="text" id="name">
+    <label for="dob">Enter your DOB:</label>
+    <input type="text" id="dob">
+    <button onclick="startTest()">Start Test</button>
+</div>
+
+<!-- Test Questions Page -->
+<div id="testPage" style="display: none;">
+ <h1>Computer Skill Academy</h1>
+    <div id="question"></div>
+    <div id="options"></div>
+    <button onclick="previousQuestion()">Previous</button>
+    <button onclick="nextQuestion()">Next</button>
+    <button onclick="submitTest()">Submit Test</button>
+</div>
+
+<!-- Result Page -->
+<div id="resultPage" style="display: none;">
+    <h1>Result</h1>
+    <div id="result"></div>
+</div>
+
+<script>
+    let currentQuestion = 0;
+    let answers = new Array(50).fill(null);
+    let testName;
+    let timer;
+    const questions =[
+    {
+        "question": "1. Which of the following is an output device?",
+        "question_hindi": "1. निम्न में से कौन-सा एक आउटपुट डिवाइस है?",
+        "options": ["Monitor", "Mouse", "Keyboard", "Scanner"],
+        "answer": 0
+    },
+    {
+        "question": "2. What is the function of the 'Recycle Bin' in Windows?",
+        "question_hindi": "2. विंडोज़ में 'रिसाइकिल बिन' का कार्य क्या है?",
+        "options": ["Permanently deletes files", "Stores deleted files temporarily", "Restores system settings", "Manages disk partitions"],
+        "answer": 1
+    },
+    {
+        "question": "3. Which shortcut key is used to open the Start Menu in Windows?",
+        "question_hindi": "3. विंडोज़ में स्टार्ट मेनू खोलने के लिए कौन-सी शॉर्टकट कुंजी का उपयोग किया जाता है?",
+        "options": ["Ctrl + S", "Alt + Tab", "Windows key", "Ctrl + Alt + Del"],
+        "answer": 2
+    },
+    {
+        "question": "4. Which of the following is a file extension for a text document?",
+        "question_hindi": "4. निम्न में से कौन-सा टेक्स्ट दस्तावेज़ का फ़ाइल एक्सटेंशन है?",
+        "options": [".txt", ".jpg", ".mp3", ".exe"],
+        "answer": 0
+    },
+    {
+        "question": "5. What does the 'Ctrl + C' shortcut do in Windows?",
+        "question_hindi": "5. विंडोज़ में 'Ctrl + C' शॉर्टकट क्या करता है?",
+        "options": ["Cuts the selected text", "Copies the selected text", "Pastes the selected text", "Deletes the selected text"],
+        "answer": 1
+    },
+    {
+        "question": "6. Which program is used to manage files and folders in Windows?",
+        "question_hindi": "6. विंडोज़ में फ़ाइलों और फोल्डरों को प्रबंधित करने के लिए कौन-सा प्रोग्राम उपयोग किया जाता है?",
+        "options": ["Task Manager", "File Explorer", "Control Panel", "Command Prompt"],
+        "answer": 1
+    },
+    {
+        "question": "7. What is the main function of the Windows Task Manager?",
+        "question_hindi": "7. विंडोज़ टास्क मैनेजर का मुख्य कार्य क्या है?",
+        "options": ["Managing running applications", "Formatting the hard drive", "Creating a new user account", "Configuring network settings"],
+        "answer": 0
+    },
+    {
+        "question": "8. Which of the following is a Windows operating system?",
+        "question_hindi": "8. निम्न में से कौन-सा एक विंडोज़ ऑपरेटिंग सिस्टम है?",
+        "options": ["Ubuntu", "macOS", "Windows 10", "Android"],
+        "answer": 2
+    },
+    {
+        "question": "9. Which file extension indicates a system file in Windows?",
+        "question_hindi": "9. विंडोज़ में कौन-सा फ़ाइल एक्सटेंशन सिस्टम फ़ाइल को दर्शाता है?",
+        "options": [".docx", ".sys", ".mp4", ".png"],
+        "answer": 1
+    },
+    {
+        "question": "10. How can you open the Task Manager quickly?",
+        "question_hindi": "10. टास्क मैनेजर को जल्दी कैसे खोल सकते हैं?",
+        "options": ["Ctrl + T", "Ctrl + Shift + Esc", "Alt + F4", "Ctrl + Alt + L"],
+        "answer": 1
+    },
+    {
+        "question": "11. What does the 'F2' key do when a file is selected in Windows?",
+        "question_hindi": "11. विंडोज़ में किसी फ़ाइल को चुनने पर 'F2' कुंजी क्या करती है?",
+        "options": ["Deletes the file", "Renames the file", "Opens the file", "Copies the file"],
+        "answer": 1
+    },
+    {
+        "question": "12. Which of these is used to install or remove software in Windows?",
+        "question_hindi": "12. विंडोज़ में सॉफ़्टवेयर इंस्टॉल या हटाने के लिए इनमें से किसका उपयोग किया जाता है?",
+        "options": ["File Explorer", "Taskbar", "Control Panel", "Notepad"],
+        "answer": 2
+    },
+    {
+        "question": "13. Which of these is a system utility for checking disk errors?",
+        "question_hindi": "13. इनमें से कौन-सा डिस्क त्रुटियों की जाँच के लिए एक सिस्टम यूटिलिटी है?",
+        "options": ["Disk Cleanup", "Disk Check", "Device Manager", "Task Manager"],
+        "answer": 1
+    },
+    {
+        "question": "14. Which drive letter is typically assigned to the primary hard drive?",
+        "question_hindi": "14. मुख्य हार्ड ड्राइव को आमतौर पर कौन-सा ड्राइव लेटर सौंपा जाता है?",
+        "options": ["A", "C", "D", "F"],
+        "answer": 1
+    },
+    {
+        "question": "15. Which feature minimizes all open windows at once?",
+        "question_hindi": "15. कौन-सा फीचर सभी खुले विंडोज़ को एक बार में छोटा कर देता है?",
+        "options": ["Task View", "Shake", "Snap", "Show Desktop"],
+        "answer": 3
+    },
+    {
+        "question": "16. What is the primary purpose of the Control Panel?",
+        "question_hindi": "16. कंट्रोल पैनल का मुख्य उद्देश्य क्या है?",
+        "options": ["Managing system settings", "Viewing files", "Playing media files", "Running applications"],
+        "answer": 0
+    },
+    {
+        "question": "17. Which of these shortcuts locks the computer?",
+        "question_hindi": "17. इनमें से कौन-सा शॉर्टकट कंप्यूटर को लॉक करता है?",
+        "options": ["Windows + L", "Ctrl + L", "Alt + L", "Shift + L"],
+        "answer": 0
+    },
+    {
+        "question": "18. What is the default browser in Windows 10?",
+        "question_hindi": "18. विंडोज़ 10 में डिफ़ॉल्ट ब्राउज़र कौन-सा है?",
+        "options": ["Google Chrome", "Mozilla Firefox", "Microsoft Edge", "Opera"],
+        "answer": 2
+    },
+    {
+        "question": "19. Which of these files stores system configurations?",
+        "question_hindi": "19. इनमें से कौन-सी फ़ाइल सिस्टम कॉन्फ़िगरेशन को संग्रहीत करती है?",
+        "options": ["boot.ini", "index.html", "readme.txt", "music.mp3"],
+        "answer": 0
+    },
+    {
+        "question": "20. What is 'Windows Defender'?",
+        "question_hindi": "20. 'विंडोज़ डिफेंडर' क्या है?",
+        "options": ["A media player", "An antivirus program", "A text editor", "A disk defragmenter"],
+        "answer": 1
+    },
+
+    {
+        "question": "21. What is the primary function of Paint in Windows?",
+        "question_hindi": "21. विंडोज़ में पेंट का मुख्य कार्य क्या है?",
+        "options": ["Creating and editing images", "Managing files", "Playing audio", "Writing code"],
+        "answer": 0
+    },
+    {
+        "question": "22. Which tool in Paint is used to draw freehand lines?",
+        "question_hindi": "22. पेंट में कौन-सा टूल फ्रीहैंड लाइन बनाने के लिए उपयोग किया जाता है?",
+        "options": ["Pencil tool", "Eraser tool", "Rectangle tool", "Fill tool"],
+        "answer": 0
+    },
+    {
+        "question": "23. Which file format is commonly used to save images in Paint?",
+        "question_hindi": "23. पेंट में छवियों को सहेजने के लिए आमतौर पर कौन-सा फ़ाइल प्रारूप उपयोग किया जाता है?",
+        "options": [".txt", ".bmp", ".doc", ".mp3"],
+        "answer": 1
+    },
+    {
+        "question": "24. What does the 'Eraser' tool do in Paint?",
+        "question_hindi": "24. पेंट में 'इरेज़र' टूल क्या करता है?",
+        "options": ["Draws shapes", "Removes parts of the image", "Fills color", "Adds text"],
+        "answer": 1
+    },
+    {
+        "question": "25. In Notepad, which file extension is used by default?",
+        "question_hindi": "25. नोटपैड में डिफ़ॉल्ट रूप से कौन-सा फ़ाइल एक्सटेंशन उपयोग होता है?",
+        "options": [".docx", ".jpg", ".txt", ".html"],
+        "answer": 2
+    },
+    {
+        "question": "26. What is the function of the 'Text tool' in Paint?",
+        "question_hindi": "26. पेंट में 'टेक्स्ट टूल' का कार्य क्या है?",
+        "options": ["Add text to the image", "Erase text", "Draw lines", "Fill shapes"],
+        "answer": 0
+    },
+    {
+        "question": "27. How can you create a new document in Notepad?",
+        "question_hindi": "27. नोटपैड में एक नया दस्तावेज़ कैसे बनाया जा सकता है?",
+        "options": ["Ctrl + N", "Ctrl + O", "Ctrl + P", "Ctrl + S"],
+        "answer": 0
+    },
+    {
+        "question": "28. Which menu in Notepad allows you to save a file?",
+        "question_hindi": "28. नोटपैड में किस मेनू से फ़ाइल को सहेजा जाता है?",
+        "options": ["Edit", "Format", "View", "File"],
+        "answer": 3
+    },
+    {
+        "question": "29. In Paint, what is the purpose of the 'Magnifier' tool?",
+        "question_hindi": "29. पेंट में 'मैग्निफायर' टूल का उद्देश्य क्या है?",
+        "options": ["Zoom in on the image", "Crop the image", "Rotate the image", "Add text"],
+        "answer": 0
+    },
+    {
+        "question": "30. How do you open a saved file in Notepad?",
+        "question_hindi": "30. नोटपैड में सहेजी गई फ़ाइल को कैसे खोलते हैं?",
+        "options": ["Ctrl + O", "Ctrl + S", "Ctrl + C", "Ctrl + P"],
+        "answer": 0
+    },
+    {
+        "question": "31. Which tool in Paint is used to fill an area with a single color?",
+        "question_hindi": "31. पेंट में किस टूल का उपयोग एक क्षेत्र को एक ही रंग से भरने के लिए किया जाता है?",
+        "options": ["Brush", "Pencil", "Fill tool", "Eraser"],
+        "answer": 2
+    },
+    {
+        "question": "32. What is the shortcut to undo the last action in Notepad?",
+        "question_hindi": "32. नोटपैड में अंतिम क्रिया को वापस लेने का शॉर्टकट क्या है?",
+        "options": ["Ctrl + Z", "Ctrl + Y", "Ctrl + X", "Ctrl + V"],
+        "answer": 0
+    },
+    {
+        "question": "33. Which shape cannot be drawn directly in Paint?",
+        "question_hindi": "33. पेंट में सीधे कौन-सा आकार नहीं बनाया जा सकता?",
+        "options": ["Circle", "Rectangle", "Hexagon", "Line"],
+        "answer": 2
+    },
+    {
+        "question": "34. What is the purpose of the 'Word Wrap' option in Notepad?",
+        "question_hindi": "34. नोटपैड में 'वर्ड रैप' विकल्प का उद्देश्य क्या है?",
+        "options": ["Prints the document", "Automatically moves text to the next line", "Saves the document", "Checks spelling"],
+        "answer": 1
+    },
+    {
+        "question": "35. How do you save a file with a different name in Paint?",
+        "question_hindi": "35. पेंट में फ़ाइल को अलग नाम से कैसे सहेजते हैं?",
+        "options": ["File > Open", "File > Save", "File > Save As", "Edit > Save"],
+        "answer": 2
+    },
+    {
+        "question": "36. What does 'Ctrl + A' do in Notepad?",
+        "question_hindi": "36. नोटपैड में 'Ctrl + A' क्या करता है?",
+        "options": ["Saves the document", "Selects all text", "Deletes all text", "Opens a new file"],
+        "answer": 1
+    },
+    {
+        "question": "37. In Paint, which tool is used to create straight lines?",
+        "question_hindi": "37. पेंट में सीधे लाइन बनाने के लिए कौन-सा टूल उपयोग किया जाता है?",
+        "options": ["Line tool", "Brush tool", "Pencil tool", "Fill tool"],
+        "answer": 0
+    },
+    {
+        "question": "38. Which of the following formats can Notepad save files in?",
+        "question_hindi": "38. नोटपैड में फ़ाइलें किस प्रारूप में सहेजी जा सकती हैं?",
+        "options": [".txt", ".bmp", ".mp4", ".ppt"],
+        "answer": 0
+    },
+    {
+        "question": "39. Which key combination is used to cut text in Notepad?",
+        "question_hindi": "39. नोटपैड में टेक्स्ट को कट करने के लिए कौन-सा कुंजी संयोजन उपयोग किया जाता है?",
+        "options": ["Ctrl + C", "Ctrl + X", "Ctrl + V", "Ctrl + Z"],
+        "answer": 1
+    },
+    {
+        "question": "40. Which of the following is not a tool in Paint?",
+        "question_hindi": "40. निम्न में से कौन-सा पेंट का टूल नहीं है?",
+        "options": ["Pencil", "Brush", "Text", "Compiler"],
+        "answer": 3
+    },
+
+    {
+        "question": "41. What is LibreOffice Writer primarily used for?",
+        "question_hindi": "41. लिब्रेऑफिस राइटर का मुख्य उपयोग किसके लिए किया जाता है?",
+        "options": ["Spreadsheets", "Word processing", "Presentations", "Databases"],
+        "answer": 1
+    },
+    {
+        "question": "42. Which file format is the default for saving documents in LibreOffice Writer?",
+        "question_hindi": "42. लिब्रेऑफिस राइटर में दस्तावेज़ सहेजने के लिए डिफ़ॉल्ट फ़ाइल प्रारूप कौन सा है?",
+        "options": [".docx", ".pdf", ".odt", ".txt"],
+        "answer": 2
+    },
+    {
+        "question": "43. How can you create a new document in LibreOffice Writer?",
+        "question_hindi": "43. लिब्रेऑफिस राइटर में नया दस्तावेज़ कैसे बनाते हैं?",
+        "options": ["Ctrl + N", "Ctrl + O", "Ctrl + S", "Ctrl + P"],
+        "answer": 0
+    },
+    {
+        "question": "44. Which menu contains the 'Save As' option?",
+        "question_hindi": "44. 'सेव ऐज' विकल्प किस मेनू में होता है?",
+        "options": ["Edit", "File", "View", "Tools"],
+        "answer": 1
+    },
+    {
+        "question": "45. What is the function of the 'Format' menu in LibreOffice Writer?",
+        "question_hindi": "45. लिब्रेऑफिस राइटर में 'फॉर्मेट' मेनू का क्या कार्य है?",
+        "options": ["To change text formatting", "To insert images", "To print the document", "To view the document properties"],
+        "answer": 0
+    },
+    {
+        "question": "46. How do you apply bold formatting to text?",
+        "question_hindi": "46. टेक्स्ट पर बोल्ड फॉर्मेटिंग कैसे लागू करते हैं?",
+        "options": ["Ctrl + B", "Ctrl + I", "Ctrl + U", "Ctrl + E"],
+        "answer": 0
+    },
+    {
+        "question": "47. What does the 'Styles' feature in LibreOffice Writer do?",
+        "question_hindi": "47. लिब्रेऑफिस राइटर में 'स्टाइल्स' फीचर क्या करता है?",
+        "options": ["Creates templates", "Applies predefined formatting", "Changes font size", "Saves documents"],
+        "answer": 1
+    },
+    {
+        "question": "48. Which toolbar contains options for text alignment?",
+        "question_hindi": "48. टेक्स्ट संरेखण के विकल्प किस टूलबार में होते हैं?",
+        "options": ["Standard Toolbar", "Formatting Toolbar", "Drawing Toolbar", "Table Toolbar"],
+        "answer": 1
+    },
+    {
+        "question": "49. How can you insert a page break in LibreOffice Writer?",
+        "question_hindi": "49. लिब्रेऑफिस राइटर में पेज ब्रेक कैसे डालते हैं?",
+        "options": ["Ctrl + Enter", "Ctrl + Shift + B", "Alt + P", "Ctrl + Shift + Enter"],
+        "answer": 0
+    },
+    {
+        "question": "50. Which tab allows you to insert images, tables, and charts?",
+        "question_hindi": "50. किस टैब में आप इमेज, टेबल, और चार्ट डाल सकते हैं?",
+        "options": ["Edit", "Insert", "Format", "Tools"],
+        "answer": 1
+    },
+    {
+        "question": "51. How do you open the 'Find and Replace' dialog box?",
+        "question_hindi": "51. 'Find and Replace' डायलॉग बॉक्स कैसे खोलते हैं?",
+        "options": ["Ctrl + F", "Ctrl + H", "Ctrl + G", "Ctrl + R"],
+        "answer": 1
+    },
+    {
+        "question": "52. Which of the following file formats can LibreOffice Writer export to?",
+        "question_hindi": "52. निम्न में से कौन-से फ़ाइल प्रारूप में लिब्रेऑफिस राइटर निर्यात कर सकता है?",
+        "options": [".ppt", ".xls", ".pdf", ".zip"],
+        "answer": 2
+    },
+    {
+        "question": "53. What is the shortcut to center align text?",
+        "question_hindi": "53. टेक्स्ट को सेंटर अलाइन करने का शॉर्टकट क्या है?",
+        "options": ["Ctrl + L", "Ctrl + R", "Ctrl + E", "Ctrl + J"],
+        "answer": 2
+    },
+    {
+        "question": "54. How do you change the font size?",
+        "question_hindi": "54. फॉन्ट साइज कैसे बदलते हैं?",
+        "options": ["Format > Size", "Home > Font", "Toolbar > Size", "Edit > Size"],
+        "answer": 2
+    },
+    {
+        "question": "55. What is the function of the 'Table' menu?",
+        "question_hindi": "55. 'टेबल' मेनू का कार्य क्या है?",
+        "options": ["Insert and format tables", "Manage files", "Change text color", "Add images"],
+        "answer": 0
+    },
+    {
+        "question": "56. Which key combination is used to open the Print dialog?",
+        "question_hindi": "56. प्रिंट डायलॉग खोलने के लिए कौन-सा कुंजी संयोजन उपयोग होता है?",
+        "options": ["Ctrl + P", "Ctrl + S", "Ctrl + T", "Ctrl + F"],
+        "answer": 0
+    },
+    {
+        "question": "57. What is the default extension for LibreOffice Writer templates?",
+        "question_hindi": "57. लिब्रेऑफिस राइटर टेम्पलेट्स का डिफ़ॉल्ट एक्सटेंशन क्या है?",
+        "options": [".ott", ".doc", ".txt", ".pdf"],
+        "answer": 0
+    },
+    {
+        "question": "58. How do you add a header to a document?",
+        "question_hindi": "58. दस्तावेज़ में हेडर कैसे जोड़ते हैं?",
+        "options": ["Insert > Header", "Format > Header", "View > Header", "File > Header"],
+        "answer": 0
+    },
+    {
+        "question": "59. What does 'Ctrl + I' do in LibreOffice Writer?",
+        "question_hindi": "59. लिब्रेऑफिस राइटर में 'Ctrl + I' क्या करता है?",
+        "options": ["Makes text italic", "Inserts a table", "Saves the document", "Opens a new document"],
+        "answer": 0
+    },
+    {
+        "question": "60. Which feature is used to check spelling and grammar?",
+        "question_hindi": "60. वर्तनी और व्याकरण की जांच के लिए कौन-सा फीचर उपयोग किया जाता है?",
+        "options": ["Spell Check", "AutoCorrect", "Thesaurus", "Word Count"],
+        "answer": 0
+    },
+    {
+        "question": "61. How do you insert a hyperlink?",
+        "question_hindi": "61. हाइपरलिंक कैसे डालते हैं?",
+        "options": ["Insert > Hyperlink", "Format > Hyperlink", "Tools > Hyperlink", "View > Hyperlink"],
+        "answer": 0
+    },
+    {
+        "question": "62. Which function key opens the 'Help' in LibreOffice Writer?",
+        "question_hindi": "62. लिब्रेऑफिस राइटर में 'Help' खोलने के लिए कौन-सी फंक्शन कुंजी है?",
+        "options": ["F1", "F2", "F3", "F4"],
+        "answer": 0
+    },
+  
+
+    {
+        "question": "63. Which tool helps you view a document in full screen?",
+        "question_hindi": "63. कौन-सा टूल दस्तावेज़ को फुल स्क्रीन में देखने में मदद करता है?",
+        "options": ["View > Full Screen", "Tools > Full Screen", "File > Full Screen", "Insert > Full Screen"],
+        "answer": 0
+    },
+    {
+        "question": "64. What is the shortcut for 'Undo' in LibreOffice Writer?",
+        "question_hindi": "64. लिब्रेऑफिस राइटर में 'Undo' के लिए शॉर्टकट क्या है?",
+        "options": ["Ctrl + Y", "Ctrl + Z", "Ctrl + U", "Ctrl + R"],
+        "answer": 1
+    },
+    {
+        "question": "65. How can you insert a footnote in LibreOffice Writer?",
+        "question_hindi": "65. लिब्रेऑफिस राइटर में फुटनोट कैसे डालते हैं?",
+        "options": ["Insert > Footnote", "Tools > Footnote", "Format > Footnote", "View > Footnote"],
+        "answer": 0
+    },
+    {
+        "question": "66. What does 'Ctrl + U' do in LibreOffice Writer?",
+        "question_hindi": "66. लिब्रेऑफिस राइटर में 'Ctrl + U' क्या करता है?",
+        "options": ["Underlines text", "Converts text to uppercase", "Opens a new document", "Saves the document"],
+        "answer": 0
+    },
+    {
+        "question": "67. Which option is used to create a numbered list?",
+        "question_hindi": "67. नंबर सूची बनाने के लिए कौन-सा विकल्प उपयोग किया जाता है?",
+        "options": ["Format > Bullets and Numbering", "Insert > Numbering", "Tools > List", "Edit > Numbering"],
+        "answer": 0
+    },
+    {
+        "question": "68. What does the 'Thesaurus' feature help you with?",
+        "question_hindi": "68. 'थिसॉरस' फीचर किसमें मदद करता है?",
+        "options": ["Check spelling", "Find synonyms", "Insert tables", "Format text"],
+        "answer": 1
+    },
+    {
+        "question": "69. How do you apply double-line spacing to text?",
+        "question_hindi": "69. टेक्स्ट पर डबल लाइन स्पेसिंग कैसे लागू करते हैं?",
+        "options": ["Format > Paragraph > Line Spacing", "Insert > Spacing", "Tools > Spacing", "View > Spacing"],
+        "answer": 0
+    },
+    {
+        "question": "70. Which menu contains the 'AutoCorrect Options'?",
+        "question_hindi": "70. 'ऑटोकरेक्ट विकल्प' किस मेनू में होते हैं?",
+        "options": ["Format", "Tools", "Insert", "Edit"],
+        "answer": 1
+    },
+    {
+        "question": "71. What is the function of 'Ctrl + Shift + V'?",
+        "question_hindi": "71. 'Ctrl + Shift + V' का कार्य क्या है?",
+        "options": ["Paste special", "Undo", "Redo", "Save"],
+        "answer": 0
+    },
+    {
+        "question": "72. How do you add a page number in LibreOffice Writer?",
+        "question_hindi": "72. लिब्रेऑफिस राइटर में पेज नंबर कैसे जोड़ते हैं?",
+        "options": ["Insert > Page Number", "Format > Page", "View > Page Number", "File > Page Number"],
+        "answer": 0
+    },
+    {
+        "question": "73. What is the default font in LibreOffice Writer?",
+        "question_hindi": "73. लिब्रेऑफिस राइटर में डिफ़ॉल्ट फ़ॉन्ट कौन सा है?",
+        "options": ["Times New Roman", "Arial", "Liberation Serif", "Calibri"],
+        "answer": 2
+    },
+    {
+        "question": "74. How do you insert a table?",
+        "question_hindi": "74. टेबल कैसे डालते हैं?",
+        "options": ["Insert > Table", "Format > Table", "Tools > Table", "File > Table"],
+        "answer": 0
+    },
+    {
+        "question": "75. Which feature is used to create a table of contents?",
+        "question_hindi": "75. सामग्री तालिका बनाने के लिए कौन-सा फीचर उपयोग होता है?",
+        "options": ["Insert > Table of Contents", "Format > Table of Contents", "Tools > Index", "File > Table of Contents"],
+        "answer": 0
+    },
+    {
+        "question": "76. How do you enable 'Track Changes'?",
+        "question_hindi": "76. 'ट्रैक चेंजेज' कैसे सक्षम करते हैं?",
+        "options": ["Edit > Track Changes", "Tools > Track Changes", "View > Track Changes", "Insert > Track Changes"],
+        "answer": 1
+    },
+    {
+        "question": "77. What is the shortcut for 'Redo'?",
+        "question_hindi": "77. 'Redo' के लिए शॉर्टकट क्या है?",
+        "options": ["Ctrl + Y", "Ctrl + Z", "Ctrl + R", "Ctrl + U"],
+        "answer": 0
+    },
+    {
+        "question": "78. How do you insert a comment in the document?",
+        "question_hindi": "78. दस्तावेज़ में टिप्पणी कैसे डालते हैं?",
+        "options": ["Insert > Comment", "Format > Comment", "Edit > Comment", "Tools > Comment"],
+        "answer": 0
+    },
+    {
+        "question": "79. Which option allows you to merge cells in a table?",
+        "question_hindi": "79. किस विकल्प से आप टेबल में सेल्स को मर्ज कर सकते हैं?",
+        "options": ["Table > Merge Cells", "Format > Merge", "Insert > Merge Cells", "Tools > Merge"],
+        "answer": 0
+    },
+    {
+        "question": "80. What does 'Ctrl + Shift + P' do?",
+        "question_hindi": "80. 'Ctrl + Shift + P' क्या करता है?",
+        "options": ["Opens 'Font' dialog", "Prints the document", "Opens 'Paragraph' settings", "Changes font color"],
+        "answer": 0
+    },
+    {
+        "question": "81. How can you view non-printing characters?",
+        "question_hindi": "81. नॉन-प्रिंटिंग कैरेक्टर कैसे देख सकते हैं?",
+        "options": ["View > Non-printing Characters", "Insert > Special Characters", "Tools > Symbols", "Edit > Characters"],
+        "answer": 0
+    },
+    {
+        "question": "82. Which menu helps to change page orientation?",
+        "question_hindi": "82. पेज ओरिएंटेशन बदलने के लिए कौन-सा मेनू उपयोग होता है?",
+        "options": ["Format > Page", "Insert > Page", "Tools > Options", "View > Orientation"],
+        "answer": 0
+    },
+    {
+        "question": "83. What is the shortcut to select all text?",
+        "question_hindi": "83. सभी टेक्स्ट को सिलेक्ट करने का शॉर्टकट क्या है?",
+        "options": ["Ctrl + A", "Ctrl + S", "Ctrl + T", "Ctrl + C"],
+        "answer": 0
+    },
+    {
+        "question": "84. How do you access the 'Word Count' feature?",
+        "question_hindi": "84. 'वर्ड काउंट' फीचर को कैसे एक्सेस करते हैं?",
+        "options": ["Tools > Word Count", "View > Word Count", "Format > Word Count", "Insert > Word Count"],
+        "answer": 0
+    },
+    {
+        "question": "85. How can you add a bookmark in LibreOffice Writer?",
+        "question_hindi": "85. लिब्रेऑफिस राइटर में बुकमार्क कैसे जोड़ते हैं?",
+        "options": ["Insert > Bookmark", "Edit > Bookmark", "Tools > Bookmark", "View > Bookmark"],
+        "answer": 0
+    },
+
+    {
+        "question": "86. How do you protect a document with a password?",
+        "question_hindi": "86. दस्तावेज़ को पासवर्ड से कैसे सुरक्षित करते हैं?",
+        "options": ["File > Save As > Save with Password", "Tools > Options > Security", "Edit > Protect", "View > Security"],
+        "answer": 0
+    },
+    {
+        "question": "87. What does the 'Navigator' tool in LibreOffice Writer do?",
+        "question_hindi": "87. लिब्रेऑफिस राइटर में 'नेविगेटर' टूल क्या करता है?",
+        "options": ["Navigates through headings, tables, and images", "Creates a new document", "Manages templates", "Tracks changes"],
+        "answer": 0
+    },
+    {
+        "question": "88. How do you insert a horizontal line in a document?",
+        "question_hindi": "88. दस्तावेज़ में क्षैतिज रेखा कैसे डालते हैं?",
+        "options": ["Insert > Horizontal Line", "Format > Line", "Tools > Line", "Edit > Horizontal Line"],
+        "answer": 0
+    },
+    {
+        "question": "89. Which feature allows you to insert the current date?",
+        "question_hindi": "89. कौन-सा फीचर आपको वर्तमान तिथि डालने की अनुमति देता है?",
+        "options": ["Insert > Date", "Format > Date", "Tools > Date", "Edit > Date"],
+        "answer": 0
+    },
+    {
+        "question": "90. What is the shortcut for 'Save' in LibreOffice Writer?",
+        "question_hindi": "90. लिब्रेऑफिस राइटर में 'Save' के लिए शॉर्टकट क्या है?",
+        "options": ["Ctrl + S", "Ctrl + P", "Ctrl + O", "Ctrl + N"],
+        "answer": 0
+    },
+    {
+        "question": "91. How can you insert a special character?",
+        "question_hindi": "91. विशेष अक्षर कैसे डालते हैं?",
+        "options": ["Insert > Special Character", "Format > Symbol", "Tools > Special", "Edit > Insert Character"],
+        "answer": 0
+    },
+    {
+        "question": "92. Which tool allows you to set the background color of a page?",
+        "question_hindi": "92. कौन-सा टूल पेज की पृष्ठभूमि का रंग सेट करने की अनुमति देता है?",
+        "options": ["Format > Page > Background", "Insert > Color", "Tools > Background", "View > Background"],
+        "answer": 0
+    },
+    {
+        "question": "93. How do you split a table cell?",
+        "question_hindi": "93. टेबल सेल को कैसे विभाजित करते हैं?",
+        "options": ["Table > Split Cells", "Insert > Split", "Format > Split Cell", "Edit > Split"],
+        "answer": 0
+    },
+    {
+        "question": "94. What does 'Ctrl + Shift + L' do?",
+        "question_hindi": "94. 'Ctrl + Shift + L' क्या करता है?",
+        "options": ["Converts text to lowercase", "Creates a new line", "Left-aligns text", "Opens 'Styles' dialog"],
+        "answer": 0
+    },
+    {
+        "question": "95. How do you insert a section in a document?",
+        "question_hindi": "95. दस्तावेज़ में सेक्शन कैसे डालते हैं?",
+        "options": ["Insert > Section", "Format > Section", "Tools > Section", "Edit > Section"],
+        "answer": 0
+    },
+    {
+        "question": "96. How can you add a watermark?",
+        "question_hindi": "96. वॉटरमार्क कैसे जोड़ते हैं?",
+        "options": ["Format > Page > Watermark", "Insert > Image", "Tools > Watermark", "Edit > Watermark"],
+        "answer": 0
+    },
+    {
+        "question": "97. What is the purpose of 'Styles and Formatting'?",
+        "question_hindi": "97. 'स्टाइल्स और फॉर्मेटिंग' का क्या उद्देश्य है?",
+        "options": ["To apply consistent formatting", "To check grammar", "To add a header", "To print the document"],
+        "answer": 0
+    },
+    {
+        "question": "98. How do you enable the 'Word Count' toolbar?",
+        "question_hindi": "98. 'वर्ड काउंट' टूलबार कैसे सक्षम करते हैं?",
+        "options": ["View > Toolbars > Word Count", "Tools > Word Count", "Insert > Word Count", "Edit > Word Count"],
+        "answer": 0
+    },
+    {
+        "question": "99. How can you open the 'Styles' sidebar?",
+        "question_hindi": "99. 'स्टाइल्स' साइडबार कैसे खोलते हैं?",
+        "options": ["F11", "F12", "Ctrl + F11", "Alt + S"],
+        "answer": 0
+    },
+    {
+        "question": "100. Which feature lets you track document changes collaboratively?",
+        "question_hindi": "100. कौन-सा फीचर आपको दस्तावेज़ में परिवर्तन सामूहिक रूप से ट्रैक करने की अनुमति देता है?",
+        "options": ["Track Changes", "Comments", "Version History", "Merge Documents"],
+        "answer": 0
+    }
+ 
+]
+ function showNamePage() {
+        document.getElementById('instructionPage').style.display = 'none';
+        document.getElementById('namePage').style.display = 'block';
+    }
+
+    function startTest() {
+        const name = document.getElementById('name').value;
+        const dob = document.getElementById('dob').value;
+
+        if (!name || !dob) {
+            alert("Please enter your name and date of birth.");
+            return;
+        }
+
+        testName = name;
+        document.getElementById('namePage').style.display = 'none';
+        document.getElementById('testPage').style.display = 'block';
+
+        startTimer(60 * 60, document.getElementById('timer'));
+        showQuestion();
+    }
+
+    function startTimer(duration, display) {
+        let timer = duration, minutes, seconds;
+        const interval = setInterval(() => {
+            minutes = parseInt(timer / 60, 10);
+            seconds = parseInt(timer % 60, 10);
+
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            display.textContent = `Time Left: ${minutes}:${seconds}`;
+
+            if (--timer < 0) {
+                clearInterval(interval);
+                submitTest();
+            }
+        }, 1000);
+    }
+
+    function showQuestion() {
+        const questionEl = document.getElementById('question');
+        const optionsEl = document.getElementById('options');
+        const question = questions[currentQuestion];
+
+        questionEl.innerHTML = `
+            <p>${question.question}</p>
+            <p>${question.question_hindi}</p>
+        `;
+
+	const labels = ['a', 'b', 'c', 'd']; // Labels for the options
+
+        optionsEl.innerHTML = question.options.map((option, index) => `
+            <div>
+                <input type="radio" name="option" value="${index}" ${answers[currentQuestion] === index ? 'checked' : ''}>
+                <label>${option}</label>
+            </div>
+        `).join('');
+    }
+
+    function nextQuestion() {
+        saveAnswer();
+        if (currentQuestion < questions.length - 1) {
+            currentQuestion++;
+            showQuestion();
+        }
+    }
+
+    function previousQuestion() {
+        saveAnswer();
+        if (currentQuestion > 0) {
+            currentQuestion--;
+            showQuestion();
+        }
+    }
+
+    function saveAnswer() {
+        const selectedOption = document.querySelector('input[name="option"]:checked');
+        if (selectedOption) {
+            answers[currentQuestion] = parseInt(selectedOption.value);
+        }
+    }
+
+    function submitTest() {
+        saveAnswer();
+        const resultEl = document.getElementById('result');
+        let score = 0;
+        answers.forEach((answer, index) => {
+            if (answer === questions[index].answer) {
+                score++;
+            }
+        });
+
+        document.getElementById('testPage').style.display = 'none';
+        resultEl.innerHTML = `
+            <p>Name: ${testName}</p>
+            <p>Score: ${score} / ${questions.length}</p>
+        `;
+        document.getElementById('resultPage').style.display = 'block';
+    }
+// Additional JavaScript code to calculate and display result details
+    function calculateResultDetails() {
+        const totalQuestions = questions.length;
+        const attemptedQuestions = answers.filter(answer => answer !== null).length;
+        const correctAnswers = answers.filter((answer, index) => answer === questions[index].answer).length;
+        const incorrectAnswers = attemptedQuestions - correctAnswers;
+        const percentage = (correctAnswers / totalQuestions) * 100;
+
+        return {
+            totalQuestions,
+            attemptedQuestions,
+            correctAnswers,
+            incorrectAnswers,
+            percentage
+        };
+    }
+
+    function displayResultDetails() {
+        const resultDetails = calculateResultDetails();
+        const resultEl = document.getElementById('result');
+
+        resultEl.innerHTML = `
+            <p>Date: ${new Date().toLocaleDateString()}</p>
+            <p>Name: ${testName}</p>
+            <p>Total Questions: ${resultDetails.totalQuestions}</p>
+            <p>Attempted Questions: ${resultDetails.attemptedQuestions}</p>
+            <p>Correct Answers: ${resultDetails.correctAnswers}</p>
+            <p>Incorrect Answers: ${resultDetails.incorrectAnswers}</p>
+            <p>Percentage: ${resultDetails.percentage.toFixed(2)}%</p>
+        `;
+    }
+function submitTest() {
+    saveAnswer();
+    const resultEl = document.getElementById('result');
+    let score = 0;
+    const incorrectAnswers = [];
+    let attemptedQuestions = 0;
+
+    answers.forEach((answer, index) => {
+        if (answer === null) {
+            return; // Skip unanswered questions
+        }
+        attemptedQuestions++;
+        if (answer === questions[index].answer) {
+            score++;
+        } else {
+            incorrectAnswers.push(index + 1);
+        }
+    });
+
+    const totalQuestions = questions.length;
+    const percentage = ((score / totalQuestions) * 100).toFixed(2);
+
+    // Display the result
+    resultEl.innerHTML = `
+        <p>Date: ${new Date().toLocaleDateString()}</p>
+        <p>Name: ${testName}</p>
+        <p>Total Questions: ${totalQuestions}</p>
+        <p>Attempted Questions: ${attemptedQuestions}</p>
+        <p>Correct Answers: ${score}</p>
+        <p>Incorrect Answers: ${incorrectAnswers.length}</p>
+        <p>Percentage: ${percentage}%</p>
+    `;
+
+    // Display images for incorrect answers
+    const imageContainer = document.createElement('div');
+    incorrectAnswers.forEach((questionIndex) => {
+        const img = document.createElement('img');
+        img.src = generateQuestionImage(questionIndex - 1); // -1 because index is 0-based
+        imageContainer.appendChild(img);
+    });
+    resultEl.appendChild(imageContainer);
+
+    document.getElementById('testPage').style.display = 'none';
+    document.getElementById('resultPage').style.display = 'block';
+}
+
+
+function generateQuestionImage(questionIndex) {
+    const canvas = document.createElement('canvas');
+    canvas.width = 800;
+    canvas.height = 400;
+    const context = canvas.getContext('2d');
+
+    // Draw question text
+    context.font = '20px Arial';
+    context.fillText(questions[questionIndex].question, 20, 40);
+    context.fillText(questions[questionIndex].question_hindi, 20, 80);
+
+    // Draw correct option
+    const correctOption = questions[questionIndex].options[questions[questionIndex].answer];
+    context.fillText(`Correct Option: ${correctOption}`, 20, 120);
+
+    // Draw user's selected option
+    const userSelectedOptionIndex = answers[questionIndex];
+    const userSelectedOption = questions[questionIndex].options[userSelectedOptionIndex];
+    context.fillText(`User's Selected Option: ${userSelectedOption}`, 20, 160);
+
+    return canvas.toDataURL(); // Return data URL of the canvas
+}
+
+</script>
+
+</body>
+</html>

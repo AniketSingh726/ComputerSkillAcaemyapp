@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: linear-gradient(45deg, #e0a421, #e4ad47, #ffffff, #86ee6c, #99f165);
+            background-size: 300% 300%;
+            animation: background-shift 1s infinite ease-in-out;
+        }
+
+        @keyframes background-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        header {
+            background-color: #050505;
+            color: white;
+            padding: 1rem 2rem;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 100rem;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            background: linear-gradient(45deg, #f0a417, #e29505, #fffeff, #06d106, #1ecf06);
+            background-size: 300% 300%;
+            animation: background-shift 1s infinite ease-in-out;
+            border-radius: 0.6rem;
+            box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .about-content {
+            font-size: 1.2rem;
+            color: #333;
+            line-height: 1.6;
+        }
+        .about-content h1{
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>About Us</h1>
+        <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+    </header>
+    <div class="container">
+        <div class="about-content">
+            <h1><p>Computer Skill Academy.in</p></h1>
+            <p>Welcome to our platform! We offer a variety of courses designed to enhance your skills and knowledge.</p>
+            <p>Our mission is to provide high-quality education accessible to everyone. We believe in learning that is flexible, engaging, and practical.</p>
+            <p>Join us to explore new opportunities and excel in your chosen field!</p>
+            <h4><p>Email id...computerskillacademynagra@gmail.com</p>
+                <p>youtube Channel...Comuterskillacademynagra</p>
+            </h4>
+        </div>
+    </div>
+</body>
+<script>
+     // Simulate a delay to demonstrate the loading animation
+     window.addEventListener("load", () => {
+            const loadingSpinner = document.querySelector(".loading-spinner");
+            const notificationBox = document.querySelector(".notification-box");
+
+            // Hide the loading spinner and show the notification content after a delay
+            setTimeout(() => {
+                loadingSpinner.style.display = "none";
+                notificationBox.style.display = "block";
+            }, 2000); // 2-second delay
+        });
+</script>
+</html>

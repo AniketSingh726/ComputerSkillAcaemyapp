@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Content Not Available</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(45deg, #ff6a00,white, #29f30e);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+    }
+
+    .container {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .content-wrapper {
+      border-radius: 10px;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 30px;
+      width: 80%;
+      max-width: 600px;
+      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .title {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .message {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .icon-wrapper {
+      margin-bottom: 20px;
+    }
+
+    .icon {
+      width: 50px;
+      height: 50px;
+      background-color: #fff;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+      margin: 0 auto;
+    }
+
+    .reload-btn {
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #ffcc00;
+      color: #333;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .reload-btn:hover {
+      background-color: #ee0505;
+      transform: scale(1.05);
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        background-color: #ff6a00;
+      }
+      50% {
+        transform: scale(1.2);
+        background-color: #faf8f1;
+      }
+      100% {
+        transform: scale(1);
+        background-color: #2edd03;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="content-wrapper">
+      <h1 class="title">Oops! This Page Is Under Construction</h1>
+      <p class="message">Sorry, the content you're looking for is not available yet. But stay tuned, it's coming soon!</p>
+      <div class="icon-wrapper">
+        <div class="icon"></div>
+      </div>
+      <button class="reload-btn" onclick="reloadPage()">Reload Page</button>
+    </div>
+  </div>
+
+  <script>
+    function reloadPage() {
+      location.reload();
+    }
+  </script>
+
+</body>
+</html>

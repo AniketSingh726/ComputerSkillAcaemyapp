@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fee Slip</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 10px;
+            background-image: linear-gradient(orange, white, green);
+            background-repeat: no-repeat;
+        }
+        .container {
+            width: 700px;
+            height: 600px;
+            margin: auto;
+            background: #fff;
+            padding: 15px;
+            margin-top: 10px;
+            border: 4px solid #000;
+            border-radius: 10px;
+        }
+        .header {
+            text-align: center;
+            font-weight: bold;
+            background-image: linear-gradient(orange,white,green);
+        }
+        .header img {
+            height: 80px;
+            margin-bottom: 10px;
+        }
+        .form-group {
+            display: flex;
+            justify-content: space-between;
+            margin: 8px 0;
+        }
+        .form-group label {
+            width: 30%;
+            font-weight: bold;
+        }
+        .form-group input, .form-group select {
+            width: 65%;
+            padding: 5px;
+            border: 1px solid #000;
+            border-radius: 5px;
+        }
+        .fees {
+            margin-top: 20px;
+            border: 1px solid #000;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        .fees .form-group label {
+            width: 50%;
+        }
+        .submit-btn {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .submit-btn button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .submit-btn button:hover {
+            background-color: #0056b3;
+        }
+        #total {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: rgb(161, 6, 6);
+            text-align: center;
+            border: 2px solid black;
+            background-color: #aeb6be;
+        }
+        #passed-by{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <div class="container" id="fee-slip">
+        <div class="header">
+            <h1>COMPUTER SKILL ACADEMY</h1>
+            <p>Reg. No.: UP-12-0028710</p>
+        </div>
+        <div class="form-group">
+            <label for="serial-no">S. No.:</label>
+            <input type="text" id="serial-no" placeholder="Enter Serial Number">
+        </div>
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Enter Name">
+        </div>
+        <div class="form-group">
+            <label for="course">Course:</label>
+            <select id="course">
+                <option value="">Select Course</option>
+                <option value="ccc">CCC</option>
+                <option value="tally">TALLY</option>
+                <option value="dca">DCA</option>
+                <option value="pgdca">PGDCA</option>
+                <option value="dtp">DTP</option>
+                <option value="adca">ADCA</option>
+                <option value="o-level">O-LEVEL</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="date">Date:</label>
+            <input type="date" id="date">
+        </div>
+
+        <div class="fees">
+            <div class="form-group">
+                <label for="admission-fee">Admission Fee:</label>
+                <input type="number" id="admission-fee" placeholder="0" oninput="calculateTotal()">
+            </div>
+            <div class="form-group">
+                <label for="registration-fee">Registration Fee:</label>
+                <input type="number" id="registration-fee" placeholder="0" oninput="calculateTotal()">
+            </div>
+            <div class="form-group">
+                <label for="exam-fee">Exam Fee:</label>
+                <input type="number" id="exam-fee" placeholder="0" oninput="calculateTotal()">
+            </div>
+            <div class="form-group">
+                <label for="practical">Practical Fee:</label>
+                <input type="number" id="practical" placeholder="0" oninput="calculateTotal()">
+            </div>
+            <div class="form-group">
+                <label for="monthly-fee">Monthly Fee:</label>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <select id="month">
+                        <option value="">Select Month</option>
+                        <option value="January">January</option>
+                        <option value="February">February</option>
+                        <option value="March">March</option>
+                        <option value="April">April</option>
+                        <option value="May">May</option>
+                        <option value="June">June</option>
+                        <option value="July">July</option>
+                        <option value="August">August</option>
+                        <option value="September">September</option>
+                        <option value="October">October</option>
+                        <option value="November">November</option>
+                        <option value="December">December</option>
+                    </select>
+                    To
+                    <select id="month">
+                        <option value="">Select Month</option>
+                        <option value="January">January</option>
+                        <option value="February">February</option>
+                        <option value="March">March</option>
+                        <option value="April">April</option>
+                        <option value="May">May</option>
+                        <option value="June">June</option>
+                        <option value="July">July</option>
+                        <option value="August">August</option>
+                        <option value="September">September</option>
+                        <option value="October">October</option>
+                        <option value="November">November</option>
+                        <option value="December">December</option>
+                    </select>
+                    <input type="number" id="monthly-fee" placeholder="0" oninput="calculateTotal()">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="total">Total:</label>
+                <input type="text" id="total" placeholder="₹ 0.00" readonly>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="passed-by">Passed By:</label>
+            <input type="text" id="passed-by" value="Sunil Kr. Singh" readonly>
+        </div>
+        <div class="form-group">
+            <label for="signature">Signature:</label>
+            <div id="signature" style="border-top: 2px solid black; width: 200px; height: 40px; margin: auto; text-align: center;">
+                <p style="margin-top: 10px; font-style: italic; font-size: 12px;">(Authorized Signature)</p>
+            </div>
+        </div>
+        
+
+        <div class="submit-btn">
+            <button onclick="generatePDF()">Submit and Download PDF</button>
+        </div>
+    </div>
+
+    <script>
+        function calculateTotal() {
+            const admissionFee = parseFloat(document.getElementById('admission-fee').value) || 0;
+            const registrationFee = parseFloat(document.getElementById('registration-fee').value) || 0;
+            const examFee = parseFloat(document.getElementById('exam-fee').value) || 0;
+            const practical = parseFloat(document.getElementById('practical').value) || 0;
+            const monthlyFee = parseFloat(document.getElementById('monthly-fee').value) || 0;
+
+            const total = admissionFee + registrationFee + examFee + practical + monthlyFee;
+            document.getElementById('total').value = `₹ ${total.toFixed(2)}`;
+        }
+
+        function generatePDF() {
+            const element = document.getElementById('fee-slip');
+            const options = {
+                margin: 0,
+                filename: `${document.getElementById('name').value || 'Fee_Slip'}.pdf`,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'A4', orientation: 'landscape' }
+            };
+            html2pdf().from(element).set(options).save();
+        }
+    </script>
+</body>
+</html>
